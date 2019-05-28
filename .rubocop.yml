@@ -1,0 +1,18 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
