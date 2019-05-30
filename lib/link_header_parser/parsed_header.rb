@@ -16,7 +16,7 @@ module LinkHeaderParser
     end
 
     def inspect
-      format("#<#{self.class.name}:%#0x>", object_id)
+      format(%(#<#{self.class.name}:%#0x @header="#{header.gsub('"', '\"')}">), object_id)
     end
 
     def relation_types
