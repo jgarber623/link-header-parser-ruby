@@ -31,7 +31,7 @@ module LinkHeaderParser
     end
 
     def target_uri
-      @target_uri ||= Absolutely.to_abs(base: @base, relative: @target)
+      @target_uri ||= Absolutely.to_abs(base: @base, relative: target)
     end
 
     def to_h
