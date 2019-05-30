@@ -1,16 +1,18 @@
 module LinkHeaderParser
   class ParsedHeader
-    attr_reader :parameters, :target
+    attr_reader :header, :parameters, :target
 
     def initialize(header, base:)
       raise ArgumentError, "header must be a String (given #{header.class})" unless header.is_a?(String)
+      raise ArgumentError, "base must be a String (given #{base.class})" unless base.is_a?(String)
+
+      @header = header
+      @base = base
 
       match_data = header.match(/^<\s*(?<target>[^>]+)\s*>\s*;\s*(?<attributes>.*)$/)
 
       @target = match_data[:target]
       @parameters = self.class.parameters_from(match_data[:attributes])
-
-      @base = base
     end
 
     def inspect
