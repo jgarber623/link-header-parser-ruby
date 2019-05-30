@@ -1,6 +1,6 @@
 module LinkHeaderParser
   class ParsedHeader
-    attr_reader :header, :parameters, :target
+    attr_reader :header
 
     def initialize(header, base:)
       raise ArgumentError, "header must be a String (given #{header.class})" unless header.is_a?(String)
@@ -8,15 +8,14 @@ module LinkHeaderParser
 
       @header = header
       @base = base
-
-      match_data = header.match(/^<\s*(?<target>[^>]+)\s*>\s*;\s*(?<attributes>.*)$/)
-
-      @target = match_data[:target]
-      @parameters = self.class.parameters_from(match_data[:attributes])
     end
 
     def inspect
       format(%(#<#{self.class.name}:%#0x @header="#{header.gsub('"', '\"')}">), object_id)
+    end
+
+    def parameters
+      @parameters ||= OpenStruct.new(header_attributes)
     end
 
     def relation_types
@@ -25,6 +24,10 @@ module LinkHeaderParser
 
     def relations
       @relations ||= parameters.rel || nil
+    end
+
+    def target
+      @target ||= header_match_data[:target]
     end
 
     def target_uri
@@ -41,8 +44,14 @@ module LinkHeaderParser
       }
     end
 
-    def self.parameters_from(attributes)
-      OpenStruct.new(attributes.tr('"', '').split(';').map { |tuple| tuple.split('=').map(&:strip) }.sort.to_h)
+    private
+
+    def header_attributes
+      @header_attributes ||= header_match_data[:attributes].tr('"', '').split(';').map { |tuple| tuple.split('=').map(&:strip) }.sort.to_h
+    end
+
+    def header_match_data
+      @header_match_data ||= header.match(/^<\s*(?<target>[^>]+)\s*>\s*;\s*(?<attributes>.*)$/)
     end
   end
 end
