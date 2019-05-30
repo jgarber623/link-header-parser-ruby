@@ -3,7 +3,7 @@ describe LinkHeaderParser::ParsedHeader, :to_h do
     context "when header is #{header}" do
       subject(:parsed_header) { described_class.new(header, base: 'https://example.com') }
 
-      it "returns a Hash" do
+      it 'returns a Hash' do
         expect(parsed_header.to_h).to include(result)
       end
     end
