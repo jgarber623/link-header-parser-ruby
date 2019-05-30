@@ -1,7 +1,5 @@
 module LinkHeaderParser
-  class ParsedHeaderSet
-    include Enumerable
-
+  class ParsedHeaderCollection
     attr_reader :headers
 
     def initialize(headers, base:)
@@ -13,7 +11,7 @@ module LinkHeaderParser
     end
 
     def inspect
-      format(%(#<#{self.class.name}:%#0x @headers="#{headers.join(',').gsub('"', '\"')}">), object_id)
+      format(%(#<#{self.class.name}:%#0x @headers=#{headers}>), object_id)
     end
   end
 end

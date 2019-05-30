@@ -1,4 +1,4 @@
-describe LinkHeaderParser::ParsedHeaderSet do
+describe LinkHeaderParser::ParsedHeaderCollection do
   context 'when headers is not an Array' do
     subject(:parsed_header_set) { described_class.new(1, base: 'https://example.com') }
 
