@@ -1,4 +1,4 @@
-describe LinkHeaderParser::ParsedHeaderCollection, :inspect do
+describe LinkHeaderParser::ParsedHeaderCollection, '#inspect' do
   subject(:parsed_header) { described_class.new(['</>; rel="home"'], base: 'https://example.com') }
 
   it 'returns a String' do

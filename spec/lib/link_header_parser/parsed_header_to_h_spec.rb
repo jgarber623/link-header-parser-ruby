@@ -1,4 +1,4 @@
-describe LinkHeaderParser::ParsedHeader, :to_h do
+describe LinkHeaderParser::ParsedHeader, '#to_h' do
   ExampleLinkHeaders::EXAMPLE_LINK_HEADERS.each do |header, result|
     context "when header is #{header}" do
       subject(:parsed_header) { described_class.new(header, base: 'https://example.com') }
