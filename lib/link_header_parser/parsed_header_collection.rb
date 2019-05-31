@@ -4,11 +4,8 @@ module LinkHeaderParser
 
     attr_reader :headers
 
-    def initialize(headers, base:)
-      raise ArgumentError, "headers must be an Array (given #{headers.class})" unless headers.is_a?(Array)
-      raise ArgumentError, "base must be a String (given #{base.class})" unless base.is_a?(String)
-
-      @headers = headers
+    def initialize(*headers, base:)
+      @headers = headers.flatten
       @base = base
     end
 
@@ -18,10 +15,6 @@ module LinkHeaderParser
       parsed_headers.each { |parsed_header| yield parsed_header }
 
       self
-    end
-
-    def empty?
-      @empty ||= length.zero?
     end
 
     def inspect
