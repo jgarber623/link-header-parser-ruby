@@ -29,6 +29,10 @@ module LinkHeaderParser
       @length ||= parsed_headers.length
     end
 
+    def relation_types
+      @relation_types ||= parsed_headers.map(&:relation_types).flatten.uniq.sort
+    end
+
     private
 
     def uniq_headers
