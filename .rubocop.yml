@@ -8,6 +8,10 @@ Layout/AlignHash:
 Metrics/LineLength:
   Enabled: false
 
+Naming/FileName:
+  Exclude:
+    - lib/link-header-parser.rb
+
 Style/Documentation:
   Enabled: false
 
