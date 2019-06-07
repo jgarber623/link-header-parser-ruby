@@ -9,6 +9,10 @@ module LinkHeaderParser
       @base = base
     end
 
+    def by_relation_type
+      @by_relation_type ||= OpenStruct.new(mapped_relation_types)
+    end
+
     def each
       return to_enum unless block_given?
 
@@ -34,6 +38,14 @@ module LinkHeaderParser
     end
 
     private
+
+    def find_all_by_relation_type(relation_type)
+      find_all { |parsed_header| parsed_header.relation_types.include?(relation_type) }
+    end
+
+    def mapped_relation_types
+      @mapped_relation_types ||= relation_types.map { |relation_type| [relation_type, find_all_by_relation_type(relation_type)] }.to_h
+    end
 
     def uniq_headers
       @uniq_headers ||= headers.map { |header| header.split(/,(?=[\s|<])/) }.flatten.map(&:strip)
