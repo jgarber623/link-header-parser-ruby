@@ -47,12 +47,12 @@ module LinkHeaderParser
       @mapped_relation_types ||= relation_types.map { |relation_type| [relation_type, find_all_by_relation_type(relation_type)] }.to_h
     end
 
-    def uniq_headers
-      @uniq_headers ||= headers.map { |header| header.split(/,(?=[\s|<])/) }.flatten.map(&:strip)
-    end
-
     def parsed_headers
       @parsed_headers ||= uniq_headers.map { |header| ParsedHeader.new(header, base: @base) }
+    end
+
+    def uniq_headers
+      @uniq_headers ||= headers.map { |header| header.split(/,(?=[\s|<])/) }.flatten.map(&:strip)
     end
   end
 end
