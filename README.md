@@ -58,13 +58,13 @@ puts collection.map(&:target_uri) # => ["https://assets.sixtwothree.org/", "http
 
 In addition to the included `Enumerable` methods, the following methods may be used to interact with a `ParsedHeaderCollection`:
 
-#### `relation_types`
+#### The `relation_types` Method
 
 ```ruby
 puts collection.relation_types # => ["preconnect", "webmention"]
 ```
 
-#### `by_relation_type`
+#### The `by_relation_type` Method
 
 Using the `collection` from above, the `by_relation_type` method returns an `OpenStruct` with the following attributes:
 
