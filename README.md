@@ -44,14 +44,29 @@ response = HTTP.get('https://sixtwothree.org')
 link_headers = response.headers.get('link')
 
 collection = LinkHeaderParser.parse(link_headers, base: response.uri.to_s)
+```
 
-puts collection.relation_types    # => ["preconnect", "webmention"]
+In the example above, `collection` is an instance of `ParsedHeaderCollection` which includes Ruby's [`Enumerable`](https://ruby-doc.org/core/Enumerable.html) mixin. This mixin allows for use of common methods like `each`, `first`/`last`, and `map`.
+
+For example, you could retrieve an array of `target_uri`s:
+
+```ruby
 puts collection.map(&:target_uri) # => ["https://assets.sixtwothree.org/", "https://fonts.googleapis.com/", "https://fonts.gstatic.com/", "https://sixtwothree.org/webmentions"]
 ```
 
-In the example above, `collection` is an instance of `ParsedHeaderCollection` which includes Ruby's [Enumerable](https://ruby-doc.org/core/Enumerable.html) mixin. This mixin allows for use of common methods like `each`, `first`/`last`, and `map` (as demonstrated above).
+### Working with a `ParsedHeaderCollection`
 
-Additionally, `collection.by_relation_type` returns an `OpenStruct` with the following attributes:
+In addition to the included `Enumerable` methods, the following methods may be used to interact with a `ParsedHeaderCollection`:
+
+#### `relation_types`
+
+```ruby
+puts collection.relation_types # => ["preconnect", "webmention"]
+```
+
+#### `by_relation_type`
+
+Using the `collection` from above, the `by_relation_type` method returns an `OpenStruct` with the following attributes:
 
 ```ruby
 {
@@ -66,7 +81,9 @@ Additionally, `collection.by_relation_type` returns an `OpenStruct` with the fol
 }
 ```
 
-Building on this example, you may interact with one or more `ParsedHeader`s in a `ParsedHeaderCollection`:
+### Working with a `ParsedHeader`
+
+Building on the above example, you may interact with one or more `ParsedHeader`s in a `ParsedHeaderCollection`:
 
 ```ruby
 parsed_header = collection.first
