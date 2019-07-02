@@ -10,6 +10,15 @@ module LinkHeaderParser
       @base = base
     end
 
+    # https://tools.ietf.org/html/rfc8288#section-3.2
+    def context
+      @context ||= parameters.anchor || target
+    end
+
+    def context_uri
+      @context_uri ||= Absolutely.to_abs(base: target_uri, relative: context)
+    end
+
     def inspect
       format(%(#<#{self.class.name}:%#0x @header="#{header.gsub('"', '\"')}">), object_id)
     end
@@ -22,10 +31,12 @@ module LinkHeaderParser
       @relation_types ||= relations&.split(' ') || nil
     end
 
+    # https://tools.ietf.org/html/rfc8288#section-3.3
     def relations
       @relations ||= parameters.rel || nil
     end
 
+    # https://tools.ietf.org/html/rfc8288#section-3.1
     def target
       @target ||= header_match_data[:target]
     end
@@ -40,6 +51,8 @@ module LinkHeaderParser
         target_uri: target_uri,
         relations: relations,
         relation_types: relation_types,
+        context: context,
+        context_uri: context_uri,
         parameters: parameters.to_h
       }
     end
