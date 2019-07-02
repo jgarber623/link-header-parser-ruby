@@ -49,10 +49,10 @@ module LinkHeaderParser
       {
         target: target,
         target_uri: target_uri,
-        relations: relations,
-        relation_types: relation_types,
         context: context,
         context_uri: context_uri,
+        relations: relations,
+        relation_types: relation_types,
         parameters: parameters.to_h
       }
     end
