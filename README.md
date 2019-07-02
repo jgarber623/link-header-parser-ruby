@@ -46,6 +46,11 @@ link_headers = response.headers.get('link')
 collection = LinkHeaderParser.parse(link_headers, base: response.uri.to_s)
 ```
 
+The `parse` method accepts two arguments:
+
+1. an `Array` of strings representing HTTP Link headers (e.g. `['</>; rel="home"', '</chapters/1>; anchor="#copyright"; rel="license"']`)
+1. a `String` representing the absolute URL of the resource providing the HTTP Link headers
+
 In the example above, `collection` is an instance of `ParsedHeaderCollection` which includes Ruby's [`Enumerable`](https://ruby-doc.org/core/Enumerable.html) mixin. This mixin allows for use of common methods like `each`, `first`/`last`, and `map`.
 
 For example, you could retrieve an array of `target_uri`s:
@@ -83,18 +88,41 @@ Using the `collection` from above, the `by_relation_type` method returns an `Ope
 
 ### Working with a `ParsedHeader`
 
-Building on the above example, you may interact with one or more `ParsedHeader`s in a `ParsedHeaderCollection`:
+You may interact with one or more `ParsedHeader`s in a `ParsedHeaderCollection` using the methods outlined below. The naming conventions for these methods draws heavily on the terminology established in [RFC-5988](https://tools.ietf.org/html/rfc5988) and [RFC-8288](https://tools.ietf.org/html/rfc8288).
+
+#### Link Target ([§ 3.1](https://tools.ietf.org/html/rfc8288#section-3.1))
 
 ```ruby
-parsed_header = collection.first
+link_headers = ['</index.html>; rel="home"']
+parsed_header = LinkHeaderParser.parse(link_headers, base: 'https://example.com/').first
 
-parsed_header.relation_types # => ['preconnect']
-parsed_header.relations      # => 'preconnect'
-parsed_header.target         # => 'https://assets.sixtwothree.org/'
-parsed_header.target_uri     # => 'https://assets.sixtwothree.org/'
+parsed_header.target     # => '/index.html'
+parsed_header.target_uri # => 'https://example.com/index.html'
 ```
 
-The naming conventions for these methods draws heavily on the terminology established in [RFC-5988](https://tools.ietf.org/html/rfc5988) and [RFC-8288](https://tools.ietf.org/html/rfc8288).
+The `target` method returns a string of the value between the opening and closing angle brackets at the beginning of the Link header. The `target_uri` method returns a string representing the resolved URL.
+
+#### Link Context ([§ 3.2](https://tools.ietf.org/html/rfc8288#section-3.2))
+
+```ruby
+link_headers = ['<https://example.com/chapters/1>; anchor="#copyright"; rel="license"']
+parsed_header = LinkHeaderParser.parse(link_headers, base: 'https://example.com/').first
+
+parsed_header.context     # => '#copyright'
+parsed_header.context_uri # => 'https://example.com/chapters/1#copyright'
+```
+
+The `anchor` parameter's value may be a fragment identifier (e.g. `#foo`), a relative URL (e.g. `/foo`), or an absolute URL (e.g. `https://context.example.com`). The `context` method returns the `anchor` parameter's value (when present) and defaults to the `target` value.
+
+#### Relation Type ([§ 3.3](https://tools.ietf.org/html/rfc8288#section-3.3))
+
+```ruby
+link_headers = ['<https://example.com/chapters/1>; rel="prev start"']
+parsed_header = LinkHeaderParser.parse(link_headers, base: 'https://example.com/').first
+
+parsed_header.relations      # => 'prev start'
+parsed_header.relation_types # => ['prev', 'start']
+```
 
 ## Contributing
 
