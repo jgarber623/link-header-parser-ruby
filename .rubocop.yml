@@ -2,10 +2,10 @@ require:
   - rubocop-performance
   - rubocop-rspec
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Metrics/ModuleLength:
