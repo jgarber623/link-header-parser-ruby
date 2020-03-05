@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.38'
   spec.add_development_dependency 'simplecov', '~> 0.18.2'
-  spec.add_development_dependency 'simplecov-console', '~> 0.6.0'
+  spec.add_development_dependency 'simplecov-console', '~> 0.7.2'
 
   spec.add_runtime_dependency 'absolutely', '~> 3.1'
 end
