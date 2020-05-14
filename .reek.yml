@@ -1,9 +1,6 @@
 detectors:
   IrresponsibleModule:
     enabled: false
-  NilCheck:
-    exclude:
-      - "LinkHeaderParser::ParsedHeader#relation_types"
 
 exclude_paths:
   - vendor/
