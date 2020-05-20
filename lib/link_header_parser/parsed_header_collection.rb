@@ -1,58 +1,50 @@
 module LinkHeaderParser
   class ParsedHeaderCollection
+    extend Forwardable
+
     include Enumerable
+
+    def_delegators :members, :[], :<<, :each, :last, :length, :push
 
     attr_reader :headers
 
+    # @param headers [Array<String>]
+    # @param base [String]
     def initialize(*headers, base:)
       @headers = headers.flatten
       @base = base
+
+      discrete_headers.each { |header| push(ParsedHeader.new(header, base: @base)) }
     end
 
+    # @return [OpenStruct]
     def by_relation_type
-      @by_relation_type ||= OpenStruct.new(mapped_relation_types)
-    end
-
-    def each
-      return to_enum unless block_given?
-
-      parsed_headers.each { |parsed_header| yield parsed_header }
-
-      self
+      @by_relation_type ||= begin
+        OpenStruct.new(
+          each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |member, hash|
+            member.relation_types.each { |relation_type| hash[relation_type] << member }
+          end
+        )
+      end
     end
 
     def inspect
-      format(%(#<#{self.class.name}:%#0x @headers=#{headers}>), object_id)
+      format(%(#<#{self.class.name}:%#0x headers: #{headers.inspect}, relation_types: #{relation_types.inspect}>), object_id)
     end
 
-    def last
-      @last ||= parsed_headers[-1]
-    end
-
-    def length
-      @length ||= parsed_headers.length
-    end
-
+    # @return [Array<String>]
     def relation_types
-      @relation_types ||= parsed_headers.map(&:relation_types).flatten.uniq.sort
+      @relation_types ||= flat_map(&:relation_types).uniq.sort
     end
 
     private
 
-    def find_all_by_relation_type(relation_type)
-      find_all { |parsed_header| parsed_header.relation_types.include?(relation_type) }
+    def discrete_headers
+      @discrete_headers ||= headers.flat_map { |header| header.split(/,(?=[\s|<])/) }.map(&:strip)
     end
 
-    def mapped_relation_types
-      @mapped_relation_types ||= relation_types.map { |relation_type| [relation_type, find_all_by_relation_type(relation_type)] }.to_h
-    end
-
-    def parsed_headers
-      @parsed_headers ||= uniq_headers.map { |header| ParsedHeader.new(header, base: @base) }
-    end
-
-    def uniq_headers
-      @uniq_headers ||= headers.map { |header| header.split(/,(?=[\s|<])/) }.flatten.map(&:strip)
+    def members
+      @members ||= []
     end
   end
 end
