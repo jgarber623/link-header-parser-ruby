@@ -1,5 +1,5 @@
 module LinkHeaderParser
-  class ParsedHeaderCollection
+  class LinkHeadersCollection
     extend Forwardable
 
     include Enumerable
@@ -14,18 +14,14 @@ module LinkHeaderParser
       @headers = headers.flatten
       @base = base
 
-      discrete_headers.each { |header| push(ParsedHeader.new(header, base: @base)) }
+      discrete_headers.each { |header| push(LinkHeader.new(header, base: base)) }
     end
 
-    # @return [OpenStruct]
-    def by_relation_type
-      @by_relation_type ||= begin
-        OpenStruct.new(
-          each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |member, hash|
-            member.relation_types.each { |relation_type| hash[relation_type] << member }
-          end
-        )
-      end
+    # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
+    def group_by_relation_type
+      relation_types.map do |relation_type|
+        [relation_type, find_all { |member| member.relation_types.include?(relation_type) }]
+      end.to_h.transform_keys(&:to_sym)
     end
 
     def inspect
@@ -38,6 +34,8 @@ module LinkHeaderParser
     end
 
     private
+
+    attr_reader :base
 
     def discrete_headers
       @discrete_headers ||= headers.flat_map { |header| header.split(/,(?=[\s|<])/) }.map(&:strip)
