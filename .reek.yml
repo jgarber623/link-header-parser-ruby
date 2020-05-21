@@ -1,6 +1,9 @@
 detectors:
   IrresponsibleModule:
     enabled: false
+  NestedIterators:
+    exclude:
+      - LinkHeaderParser::LinkHeadersCollection#group_by_relation_type
 
 exclude_paths:
   - vendor/
