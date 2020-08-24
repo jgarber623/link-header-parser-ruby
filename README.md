@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/link-header-parser.svg?style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
 [![Downloads](https://img.shields.io/gem/dt/link-header-parser.svg?style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
-[![Build](https://img.shields.io/travis/com/jgarber623/link-header-parser-ruby/master.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/link-header-parser-ruby)
+[![Build](https://img.shields.io/travis/com/jgarber623/link-header-parser-ruby/main.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/link-header-parser-ruby)
 [![Dependencies](https://img.shields.io/depfu/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://depfu.com/github/jgarber623/link-header-parser-ruby)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby/code)
@@ -145,7 +145,7 @@ Note that the `Array` returned by the `link_parameters` method may include multi
 
 ## Contributing
 
-Interested in helping improve link-header-parser-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/jgarber623/link-header-parser-ruby/blob/master/CONTRIBUTING.md) for details.
+Interested in helping improve link-header-parser-ruby? Awesome! Your help is greatly appreciated. See [CONTRIBUTING.md](https://github.com/jgarber623/link-header-parser-ruby/blob/main/CONTRIBUTING.md) for details.
 
 ## Acknowledgments
 
