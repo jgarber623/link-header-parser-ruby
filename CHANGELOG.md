@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 / 2020-10-07
+
+- Update Absolutely dependency to 5.0 (62988c0)
+
 ## 2.0.0 / 2020-05-21
 
 - **Breaking changes:** Rewrite gem code (5351010)
