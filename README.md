@@ -2,12 +2,11 @@
 
 **A Ruby gem for parsing HTTP Link headers.**
 
-[![Gem](https://img.shields.io/gem/v/link-header-parser.svg?style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
-[![Downloads](https://img.shields.io/gem/dt/link-header-parser.svg?style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
-[![Build](https://img.shields.io/travis/com/jgarber623/link-header-parser-ruby/main.svg?style=for-the-badge)](https://travis-ci.com/jgarber623/link-header-parser-ruby)
-[![Dependencies](https://img.shields.io/depfu/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://depfu.com/github/jgarber623/link-header-parser-ruby)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby)
-[![Coverage](https://img.shields.io/codeclimate/c/jgarber623/link-header-parser-ruby.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby/code)
+[![Gem](https://img.shields.io/gem/v/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
+[![Downloads](https://img.shields.io/gem/dt/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
+[![Build](https://img.shields.io/circleci/build/github/jgarber623/link-header-parser-ruby?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/link-header-parser-ruby)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby)
+[![Coverage](https://img.shields.io/codeclimate/c/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby/code)
 
 ## Getting Started
 
