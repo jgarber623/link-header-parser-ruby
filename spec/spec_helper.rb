@@ -1,4 +1,3 @@
-require 'bundler/setup'
 require 'simplecov'
 
 require 'link-header-parser'
