@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 / 20201-04-02
+
+- Expand supported Ruby versions to include 3.0 (7187878)
+
 ## 2.1.0 / 2020-10-07
 
 - Update Absolutely dependency to 5.0 (62988c0)
