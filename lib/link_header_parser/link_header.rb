@@ -56,7 +56,7 @@ module LinkHeaderParser
     #
     # @return [String]
     def relations_string
-      @relations_string ||= grouped_link_parameters[:rel]&.first || ''
+      @relations_string ||= grouped_link_parameters[:rel]&.first.to_s
     end
 
     # The target URL for this Link header extracted from field_value

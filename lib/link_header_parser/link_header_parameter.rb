@@ -22,9 +22,9 @@ module LinkHeaderParser
 
     # @see https://tools.ietf.org/html/rfc8288#appendix-B.3 (Appendix B.3.2.8)
     #
-    # @return [String, nil]
+    # @return [String]
     def value
-      @value ||= parameter_match_data[:value] || ''
+      @value ||= parameter_match_data[:value].to_s
     end
 
     # @return [Array<String>]
