@@ -42,13 +42,13 @@ response = HTTP.get('https://sixtwothree.org')
 
 link_headers = response.headers.get('link')
 
-collection = LinkHeaderParser.parse(link_headers, base: response.uri.to_s)
+collection = LinkHeaderParser.parse(link_headers, base: response.uri)
 ```
 
 The `parse` method accepts two arguments:
 
 1. an `Array` of strings representing HTTP Link headers (e.g. `['</>; rel="home"', '</chapters/1>; anchor="#copyright"; rel="license"']`)
-1. a `String` representing the absolute URL of the resource providing the HTTP Link headers
+1. a `String` (or any `String`-like object) representing the absolute URL of the resource providing the HTTP Link headers
 
 In the example above, `collection` is an instance of `LinkHeadersCollection` which includes Ruby's [`Enumerable`](https://ruby-doc.org/core/Enumerable.html) mixin. This mixin allows for use of common methods like `each`, `first`/`last`, and `map`.
 
@@ -137,7 +137,7 @@ link_header.relation_types
 link_header = LinkHeaderParser.parse('</posts.rss>; rel="alternate"; hreflang="en-US"; title="sixtwothree.org: Posts"; type="application/rss+xml"', base: 'https://sixtwothree.org').first
 
 link_header.link_parameters
-#=> [#<LinkHeaderParser::LinkHeaderParameter:0x3fdea54716ac name: "rel", value: "alternate">, #<LinkHeaderParser::LinkHeaderParameter:0x3fdea5471684 name: "hreflang", value: "en-US">, #<LinkHeaderParser::LinkHeaderParameter:0x3fdea5471670 name: "title", value: "sixtwothree.org: Posts">, #<LinkHeaderParser::LinkHeaderParameter:0x3fdea547165c name: "type", value: "application/rss+xml">]
+#=> [#<LinkHeaderParser::LinkHeaderParameter name: "rel", value: "alternate">, #<LinkHeaderParser::LinkHeaderParameter name: "hreflang", value: "en-US">, #<LinkHeaderParser::LinkHeaderParameter name: "title", value: "sixtwothree.org: Posts">, #<LinkHeaderParser::LinkHeaderParameter name: "type", value: "application/rss+xml">]
 ```
 
 Note that the `Array` returned by the `link_parameters` method may include multiple `LinkHeaderParameter`s with the same name depending on the provided Link header. Certain methods on `LinkHeader` will return values from the first occurrence of a parameter name (e.g. `link_header.relations_string`) in accordance with [RFC-8288](https://tools.ietf.org/html/rfc8288).
