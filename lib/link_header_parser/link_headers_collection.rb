@@ -11,8 +11,8 @@ module LinkHeaderParser
     # @param headers [Array<String>]
     # @param base [String]
     def initialize(*headers, base:)
-      @headers = headers.flatten
-      @base = base
+      @headers = headers.to_ary.flatten.map(&:to_str)
+      @base = base.to_str
 
       distinct_headers.each { |header| push(LinkHeader.new(header, base: base)) }
     end

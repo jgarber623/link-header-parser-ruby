@@ -11,11 +11,8 @@ module LinkHeaderParser
     # @param field_value [String]
     # @param base [String]
     def initialize(field_value, base:)
-      raise ArgumentError, "field_value must be a String (given #{field_value.class})" unless field_value.is_a?(String)
-      raise ArgumentError, "base must be a String (given #{base.class})" unless base.is_a?(String)
-
-      @field_value = field_value
-      @base = base
+      @field_value = field_value.to_str
+      @base = base.to_str
     end
 
     # The context URL for this Link header extracted from field_value (or target URL if no context URL is present)

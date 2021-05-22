@@ -6,7 +6,7 @@ module LinkHeaderParser
 
     # @param parameter [String]
     def initialize(parameter)
-      @parameter = parameter
+      @parameter = parameter.to_str
     end
 
     def inspect
