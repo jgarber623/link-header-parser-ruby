@@ -1,6 +1,6 @@
 require 'forwardable'
 
-require 'absolutely'
+require 'addressable/uri'
 
 require 'link_header_parser/version'
 require 'link_header_parser/exceptions'

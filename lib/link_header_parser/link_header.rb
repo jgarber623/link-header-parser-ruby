@@ -31,7 +31,7 @@ module LinkHeaderParser
     #
     # @return [String]
     def context_uri
-      @context_uri ||= Absolutely.to_abs(base: target_uri, relative: context_string)
+      @context_uri ||= Addressable::URI.join(target_uri, context_string).normalize.to_s
     end
 
     def inspect
@@ -75,7 +75,7 @@ module LinkHeaderParser
     #
     # @return [String]
     def target_uri
-      @target_uri ||= Absolutely.to_abs(base: base, relative: target_string)
+      @target_uri ||= Addressable::URI.join(base, target_string).normalize.to_s
     end
 
     # @return [Hash{Symbol => String, Array, Hash{Symbol => Array}}]
