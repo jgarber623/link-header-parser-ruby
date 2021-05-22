@@ -3,7 +3,6 @@ require 'forwardable'
 require 'addressable/uri'
 
 require 'link_header_parser/version'
-require 'link_header_parser/exceptions'
 
 require 'link_header_parser/link_header'
 require 'link_header_parser/link_header_parameter'
