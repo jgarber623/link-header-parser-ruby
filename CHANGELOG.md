@@ -1,6 +1,14 @@
 # Changelog
 
-## 2.2.0 / 20201-04-02
+## 3.0.0 / 2021-05-22
+
+- Add implicit type conversion methods, alias explicit methods, and update specs (d132535)
+- Remove exceptions module (249d77c)
+- Use implicit conversions instead of type checking in methods (628c01b)
+- Replace Absolutely dependency with Addressable (beb5188)
+- Update project Ruby version to 2.5.9 (4a3941f)
+
+## 2.2.0 / 2021-04-02
 
 - Expand supported Ruby versions to include 3.0 (7187878)
 
