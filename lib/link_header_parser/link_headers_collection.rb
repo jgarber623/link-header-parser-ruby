@@ -14,7 +14,7 @@ module LinkHeaderParser
       @headers = headers.flatten
       @base = base
 
-      discrete_headers.each { |header| push(LinkHeader.new(header, base: base)) }
+      distinct_headers.each { |header| push(LinkHeader.new(header, base: base)) }
     end
 
     # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
@@ -37,8 +37,8 @@ module LinkHeaderParser
 
     attr_reader :base
 
-    def discrete_headers
-      @discrete_headers ||= headers.flat_map { |header| header.split(/,(?=[\s|<])/) }.map(&:strip)
+    def distinct_headers
+      @distinct_headers ||= headers.flat_map { |header| header.split(/,(?=[\s|<])/) }.map(&:strip)
     end
 
     def members
