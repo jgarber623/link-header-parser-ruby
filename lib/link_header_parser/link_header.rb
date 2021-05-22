@@ -76,7 +76,7 @@ module LinkHeaderParser
     end
 
     # @return [Hash{Symbol => String, Array, Hash{Symbol => Array}}]
-    def to_h
+    def to_hash
       {
         target_string: target_string,
         target_uri: target_uri,
@@ -87,6 +87,8 @@ module LinkHeaderParser
         link_parameters: grouped_link_parameters
       }
     end
+
+    alias to_h to_hash
 
     private
 

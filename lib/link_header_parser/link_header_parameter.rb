@@ -28,9 +28,11 @@ module LinkHeaderParser
     end
 
     # @return [Array<String>]
-    def to_a
+    def to_ary
       [name, value]
     end
+
+    alias to_a to_ary
 
     private
 
