@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
 [![Downloads](https://img.shields.io/gem/dt/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
-[![Build](https://img.shields.io/circleci/build/github/jgarber623/link-header-parser-ruby?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/link-header-parser-ruby)
+[![Build](https://img.shields.io/github/workflow/status/jgarber623/link-header-parser-ruby/CI?logo=github&style=for-the-badge)](https://github.com/jgarber623/link-header-parser-ruby/actions/workflows/ci.yml)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby/code)
 
@@ -12,7 +12,7 @@
 
 Before installing and using link-header-parser-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.5 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-link-header-parser-ruby is developed using Ruby 2.5.9 and is additionally tested against Ruby 2.6, 2.7, and 3.0 using [CircleCI](https://app.circleci.com/pipelines/github/jgarber623/link-header-parser-ruby).
+link-header-parser-ruby is developed using Ruby 2.6.9 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/jgarber623/link-header-parser-ruby/actions).
 
 ## Installation
 
