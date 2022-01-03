@@ -5,24 +5,10 @@ require:
   - rubocop-rspec
 
 AllCops:
+  DisplayStyleGuide: true
+  ExtraDetails: true
   NewCops: enable
-
-Layout/LineLength:
-  Enabled: false
-
-Metrics/ModuleLength:
-  Exclude:
-    - spec/support/**/*.rb
 
 Naming/FileName:
   Exclude:
     - lib/link-header-parser.rb
-
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/SymbolArray:
-  Enabled: false
