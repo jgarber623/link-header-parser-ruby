@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe LinkHeaderParser::LinkHeader, '#to_hash' do
-  ExampleLinkHeaders::EXAMPLE_LINK_HEADERS.each do |header, result|
+  SpecFixtures.example_link_headers.each do |header, result|
     context "when header is #{header}" do
       subject(:link_header) { described_class.new(header, base: 'https://example.com') }
 

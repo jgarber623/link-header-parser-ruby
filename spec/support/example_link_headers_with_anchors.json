@@ -1,0 +1,176 @@
+[
+  [
+    "<https://example.com>; anchor=#foo",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"]
+      }
+    }
+  ],
+  [
+    "<https://example.com>; anchor=\"#foo\"",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=#foo",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=\"#foo\"",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"]
+      }
+    }
+  ],
+  [
+    "<https://example.com/foo>; anchor=bar",
+    {
+      "context_string": "bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["bar"]
+      }
+    }
+  ],
+  [
+    "<https://example.com/foo>; anchor=\"bar\"",
+    {
+      "context_string": "bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["bar"]
+      }
+    }
+  ],
+  [
+    "<https://example.com/foo>; anchor=../bar",
+    {
+      "context_string": "../bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["../bar"]
+      }
+    }
+  ],
+  [
+    "<https://example.com/foo>; anchor=\"../bar\"",
+    {
+      "context_string": "../bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["../bar"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=bar",
+    {
+      "context_string": "bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["bar"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=\"bar\"",
+    {
+      "context_string": "bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["bar"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=../bar",
+    {
+      "context_string": "../bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["../bar"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=\"../bar\"",
+    {
+      "context_string": "../bar",
+      "context_uri": "https://example.com/bar",
+      "link_parameters": {
+        "anchor": ["../bar"]
+      }
+    }
+  ],
+  [
+    "<https://example.com>; rel=home; anchor=\"#foo\"",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"],
+        "rel": ["home"]
+      }
+    }
+  ],
+  [
+    "<https://example.com>; rel=\"home previous\"; anchor=#foo",
+    {
+      "context_string": "#foo",
+      "context_uri": "https://example.com/#foo",
+      "link_parameters": {
+        "anchor": ["#foo"],
+        "rel": ["home previous"]
+      }
+    }
+  ],
+  [
+    "</foo>; rel=home; anchor=\"#bar\"",
+    {
+      "context_string": "#bar",
+      "context_uri": "https://example.com/foo#bar",
+      "link_parameters": {
+        "anchor": ["#bar"],
+        "rel": ["home"]
+      }
+    }
+  ],
+  [
+    "</foo>; rel=\"home previous\"; anchor=#bar",
+    {
+      "context_string": "#bar",
+      "context_uri": "https://example.com/foo#bar",
+      "link_parameters": {
+        "anchor": ["#bar"],
+        "rel": ["home previous"]
+      }
+    }
+  ],
+  [
+    "</>; anchor=\"https://context.example.com\"",
+    {
+      "context_string": "https://context.example.com",
+      "context_uri": "https://context.example.com/",
+      "link_parameters": {
+        "anchor": ["https://context.example.com"]
+      }
+    }
+  ]
+]
