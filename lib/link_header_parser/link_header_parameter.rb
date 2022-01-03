@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LinkHeaderParser
   class LinkHeaderParameter
     PARAMETER_REGEXP_PATTERN = /^(?<name>.+?)(?:="?(?<value>.*?)"?)?$/.freeze

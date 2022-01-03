@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LinkHeaderParser::LinkHeader, '#inspect' do
   subject(:link_header) { described_class.new('</>; rel="home"', base: 'https://example.com') }
 

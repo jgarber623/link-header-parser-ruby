@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LinkHeaderParser::LinkHeaderParameter, '#inspect' do
   subject(:link_parameter) { described_class.new('rel="home"') }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LinkHeaderParser
   VERSION = '3.0.0'.freeze
 end

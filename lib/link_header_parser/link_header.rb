@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LinkHeaderParser
   class LinkHeader
     FIELD_VALUE_REGEXP_PATTERN = /^\s*<\s*(?<target_string>[^>]+)\s*>\s*(?<parameters>;\s*.*)$/.freeze

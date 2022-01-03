@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LinkHeaderParser::LinkHeader, '#to_hash' do
   ExampleLinkHeaders::EXAMPLE_LINK_HEADERS.each do |header, result|
     context "when header is #{header}" do

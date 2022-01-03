@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LinkHeaderParser::LinkHeadersCollection, '#relation_types' do
   subject(:link_headers_collection) { described_class.new(headers, base: 'https://example.com') }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExampleLinkHeaders
   EXAMPLE_LINK_HEADERS_WITH_ANCHORS = [
     [

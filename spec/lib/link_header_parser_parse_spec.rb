@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LinkHeaderParser, '.parse' do
   let(:base_url) { 'https://example.com' }
 
