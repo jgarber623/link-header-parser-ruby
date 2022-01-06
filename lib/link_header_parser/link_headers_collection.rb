@@ -22,7 +22,7 @@ module LinkHeaderParser
     # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
     def group_by_relation_type
       relation_types.to_h do |relation_type|
-        [relation_type.to_sym, select { |member| member.relation_types.include?(relation_type) }]
+        [relation_type.to_sym, select_by_relation_type(relation_type)]
       end
     end
 
@@ -45,6 +45,10 @@ module LinkHeaderParser
 
     def members
       @members ||= []
+    end
+
+    def select_by_relation_type(relation_type)
+      select { |member| member.relation_types.include?(relation_type) }
     end
   end
 end
