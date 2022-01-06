@@ -11,6 +11,7 @@ module LinkHeaderParser
       @parameter = parameter.to_str
     end
 
+    # @return [String]
     def inspect
       "#<#{self.class.name}:#{format('%#0x', object_id)} name: #{name.inspect}, value: #{value.inspect}>"
     end

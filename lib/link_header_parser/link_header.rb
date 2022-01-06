@@ -33,6 +33,7 @@ module LinkHeaderParser
       @context_uri ||= URI.join(target_uri, context_string).normalize.to_s
     end
 
+    # @return [String]
     def inspect
       "#<#{self.class.name}:#{format('%#0x', object_id)} target_uri: #{target_uri.inspect}, relation_types: #{relation_types.inspect}>"
     end
