@@ -21,13 +21,13 @@ module LinkHeaderParser
 
     # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
     def group_by_relation_type
-      relation_types.map do |relation_type|
-        [relation_type, find_all { |member| member.relation_types.include?(relation_type) }]
-      end.to_h.transform_keys(&:to_sym)
+      relation_types.to_h do |relation_type|
+        [relation_type.to_sym, select { |member| member.relation_types.include?(relation_type) }]
+      end
     end
 
     def inspect
-      format(%(#<#{self.class.name}:%#0x headers: #{headers.inspect}, relation_types: #{relation_types.inspect}>), object_id)
+      "#<#{self.class.name}:#{format('%#0x', object_id)} headers: #{headers.inspect}, relation_types: #{relation_types.inspect}>"
     end
 
     # @return [Array<String>]

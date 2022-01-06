@@ -12,7 +12,7 @@ module LinkHeaderParser
     end
 
     def inspect
-      format(%(#<#{self.class.name}:%#0x name: #{name.inspect}, value: #{value.inspect}>), object_id)
+      "#<#{self.class.name}:#{format('%#0x', object_id)} name: #{name.inspect}, value: #{value.inspect}>"
     end
 
     # @see https://tools.ietf.org/html/rfc8288#appendix-B.3 (Appendix B.3.2.9)

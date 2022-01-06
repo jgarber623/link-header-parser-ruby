@@ -34,7 +34,7 @@ module LinkHeaderParser
     end
 
     def inspect
-      format(%(#<#{self.class.name}:%#0x target_uri: #{target_uri.inspect}, relation_types: #{relation_types.inspect}>), object_id)
+      "#<#{self.class.name}:#{format('%#0x', object_id)} target_uri: #{target_uri.inspect}, relation_types: #{relation_types.inspect}>"
     end
 
     # The parsed parameters for this Link header extracted from field_value
