@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.0.0 / 2022-01-06
+
+- Remove Addressable dependency (daedf22)
+- **Breaking change:** Update minimum Ruby version to 2.6 (e2343ed)
+- Migrate to GitHub Actions (509b2c4)
+- Update project Ruby version to 2.6.9 (c39bc66)
+
 ## 3.0.0 / 2021-05-22
 
 - Add implicit type conversion methods, alias explicit methods, and update specs (d132535)
