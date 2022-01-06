@@ -2,11 +2,11 @@
 
 require 'forwardable'
 
-require 'link_header_parser/version'
+require_relative 'link_header_parser/version'
 
-require 'link_header_parser/link_header'
-require 'link_header_parser/link_header_parameter'
-require 'link_header_parser/link_headers_collection'
+require_relative 'link_header_parser/link_header'
+require_relative 'link_header_parser/link_header_parameter'
+require_relative 'link_header_parser/link_headers_collection'
 
 module LinkHeaderParser
   # Parse an array of HTTP Link headers
