@@ -1,13 +1,5 @@
-require:
-  - rubocop-packaging
-  - rubocop-performance
-  - rubocop-rake
-  - rubocop-rspec
-
-AllCops:
-  DisplayStyleGuide: true
-  ExtraDetails: true
-  NewCops: enable
+inherit_from:
+  - https://raw.githubusercontent.com/jgarber623/rubocop-configs/main/.rubocop.gem.yml
 
 Naming/FileName:
   Exclude:
