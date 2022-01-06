@@ -35,7 +35,9 @@ module LinkHeaderParser
 
     # @return [String]
     def inspect
-      "#<#{self.class.name}:#{format('%#0x', object_id)} target_uri: #{target_uri.inspect}, relation_types: #{relation_types.inspect}>"
+      "#<#{self.class.name}:#{format('%#0x', object_id)} " \
+        "target_uri: #{target_uri.inspect}, " \
+        "relation_types: #{relation_types.inspect}>"
     end
 
     # The parsed parameters for this Link header extracted from field_value
@@ -43,7 +45,9 @@ module LinkHeaderParser
     #
     # @return [Array<LinkHeaderParser::LinkHeaderParameter>]
     def link_parameters
-      @link_parameters ||= field_value_match_data[:parameters].scan(PARAMETERS_REGEXP_PATTERN).flatten.map { |parameter| LinkHeaderParameter.new(parameter) }
+      @link_parameters ||= field_value_match_data[:parameters].scan(PARAMETERS_REGEXP_PATTERN)
+                                                              .flatten
+                                                              .map { |parameter| LinkHeaderParameter.new(parameter) }
     end
 
     # The relations_string value returned as an Array
@@ -102,7 +106,10 @@ module LinkHeaderParser
     end
 
     def grouped_link_parameters
-      @grouped_link_parameters ||= link_parameters.map(&:to_a).group_by(&:shift).transform_keys(&:to_sym).transform_values(&:flatten)
+      @grouped_link_parameters ||= link_parameters.map(&:to_a)
+                                                  .group_by(&:shift)
+                                                  .transform_keys(&:to_sym)
+                                                  .transform_values(&:flatten)
     end
   end
 end

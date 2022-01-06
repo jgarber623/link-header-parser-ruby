@@ -28,7 +28,9 @@ module LinkHeaderParser
 
     # @return [String]
     def inspect
-      "#<#{self.class.name}:#{format('%#0x', object_id)} headers: #{headers.inspect}, relation_types: #{relation_types.inspect}>"
+      "#<#{self.class.name}:#{format('%#0x', object_id)} " \
+        "headers: #{headers.inspect}, " \
+        "relation_types: #{relation_types.inspect}>"
     end
 
     # @return [Array<String>]
