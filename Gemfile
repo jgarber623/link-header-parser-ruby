@@ -5,9 +5,11 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in link-header-parser.gemspec
 gemspec
 
+gem 'code-scanning-rubocop'
 gem 'pry-byebug'
 gem 'rake'
 gem 'rspec'
+gem 'rspec-github'
 gem 'rubocop'
 gem 'rubocop-packaging'
 gem 'rubocop-performance'
