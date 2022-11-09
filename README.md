@@ -10,9 +10,9 @@
 
 ## Getting Started
 
-Before installing and using link-header-parser-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.6 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
+Before installing and using link-header-parser-ruby, you'll want to have [Ruby](https://www.ruby-lang.org) 2.7 (or newer) installed. It's recommended that you use a Ruby version managment tool like [rbenv](https://github.com/rbenv/rbenv), [chruby](https://github.com/postmodern/chruby), or [rvm](https://github.com/rvm/rvm).
 
-link-header-parser-ruby is developed using Ruby 2.6.10 and is additionally tested against Ruby 2.7, 3.0, and 3.1 using [GitHub Actions](https://github.com/jgarber623/link-header-parser-ruby/actions).
+link-header-parser-ruby is developed using Ruby 2.7.6 and is additionally tested against Ruby 3.0 and 3.1 using [GitHub Actions](https://github.com/jgarber623/link-header-parser-ruby/actions).
 
 ## Installation
 
