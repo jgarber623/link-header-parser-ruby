@@ -22,7 +22,7 @@ module LinkHeaderParser
       @headers = headers.to_ary.flatten.map(&:to_str)
       @base = base.to_str
 
-      distinct_headers.each { |header| push(LinkHeader.new(header, base: base)) }
+      push(*distinct_link_headers)
     end
 
     # Retrieve a +Hash+ of this collection's {LinkHeader}s grouped by their
@@ -54,8 +54,9 @@ module LinkHeaderParser
 
     attr_reader :base
 
-    def distinct_headers
-      @distinct_headers ||= headers.flat_map { |header| header.split(/,(?=[\s|<])/) }.map(&:strip)
+    def distinct_link_headers
+      headers.flat_map { |header| header.split(/,(?=[\s|<])/) }
+             .map { |header| LinkHeader.new(header.strip, base: base) }
     end
 
     def members
