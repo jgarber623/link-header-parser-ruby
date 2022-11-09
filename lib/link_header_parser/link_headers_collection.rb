@@ -50,6 +50,8 @@ module LinkHeaderParser
       @relation_types ||= flat_map(&:relation_types).uniq.sort
     end
 
+    # Return an +Array+ representation of this {LinkHeadersCollection}.
+    #
     # @see LinkHeader#to_hash
     #
     # @return [Array<Hash>}>]
