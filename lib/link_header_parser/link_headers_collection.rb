@@ -8,10 +8,16 @@ module LinkHeaderParser
 
     def_delegators :members, :[], :<<, :each, :last, :length, :push
 
+    # The +Array+ of HTTP Link headers used to create this
+    # {LinkHeadersCollection}.
+    #
+    # @return [Array<String>]
     attr_reader :headers
 
-    # @param headers [Array<String>]
-    # @param base [String]
+    # Parse an array of HTTP Link headers.
+    #
+    # @param headers [Array<String, #to_str>]
+    # @param base [String, #to_str]
     def initialize(*headers, base:)
       @headers = headers.to_ary.flatten.map(&:to_str)
       @base = base.to_str
@@ -19,6 +25,9 @@ module LinkHeaderParser
       distinct_headers.each { |header| push(LinkHeader.new(header, base: base)) }
     end
 
+    # Retrieve a +Hash+ of this collection's {LinkHeader}s grouped by their
+    # relation type(s).
+    #
     # @return [Hash{Symbol => Array<LinkHeaderParser::LinkHeader>}]
     def group_by_relation_type
       relation_types.to_h do |relation_type|
@@ -33,6 +42,9 @@ module LinkHeaderParser
         "relation_types: #{relation_types.inspect}>"
     end
 
+    # Retrieve a unique sorted +Array+ of this collection's {LinkHeader}
+    # relation types.
+    #
     # @return [Array<String>]
     def relation_types
       @relation_types ||= flat_map(&:relation_types).uniq.sort

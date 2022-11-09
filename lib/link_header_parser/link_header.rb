@@ -3,30 +3,43 @@
 module LinkHeaderParser
   class LinkHeader
     FIELD_VALUE_REGEXP_PATTERN = /^\s*<\s*(?<target_string>[^>]+)\s*>\s*(?<parameters>;\s*.*)$/.freeze
-    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*([^;]+)/.freeze
+    private_constant :FIELD_VALUE_REGEXP_PATTERN
 
+    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*([^;]+)/.freeze
+    private_constant :PARAMETERS_REGEXP_PATTERN
+
+    # The +String+ value used to create this {LinkHeader}.
+    #
+    # @return [String]
     attr_reader :field_value
 
-    # Create a new parsed Link header
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    # Create a new parsed Link header.
     #
-    # @param field_value [String]
-    # @param base [String]
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2 Parsing a Link Field Value
+    #
+    # @param field_value [String, #to_str]
+    # @param base [String, #to_str]
     def initialize(field_value, base:)
       @field_value = field_value.to_str
       @base = base.to_str
     end
 
-    # The context URL for this Link header extracted from field_value (or target URL if no context URL is present)
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.11)
+    # The context URL for this Link header extracted from +field_value+ (or
+    # target URL if no context URL is present).
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.11 Parsing a Link Field Value
     #
     # @return [String]
     def context_string
       @context_string ||= grouped_link_parameters[:anchor]&.first || target_string
     end
 
-    # The resolved context URL for this Link header
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.12)
+    # The resolved context URL for this Link header.
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.12 Parsing a Link Field Value
     #
     # @return [String]
     def context_uri
@@ -40,8 +53,10 @@ module LinkHeaderParser
         "relation_types: #{relation_types.inspect}>"
     end
 
-    # The parsed parameters for this Link header extracted from field_value
+    # The parsed parameters for this Link header extracted from +field_value+.
+    #
     # @see https://tools.ietf.org/html/rfc8288#appendix-B.3
+    #   IETF RFC 8288 Web Linking Appendix B.3 Parsing Parameters
     #
     # @return [Array<LinkHeaderParser::LinkHeaderParameter>]
     def link_parameters
@@ -50,38 +65,50 @@ module LinkHeaderParser
                                                               .map { |parameter| LinkHeaderParameter.new(parameter) }
     end
 
-    # The relations_string value returned as an Array
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.10 and Appendix B.2.2.17.1)
+    # The +relations_string+ value returned as an +Array+.
+    #
+    # @see LinkHeader#relations_string
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.10 and Appendix B.2.2.17.1 Parsing a Link Field Value
     #
     # @return [Array<String>]
     def relation_types
       @relation_types ||= relations_string.split.map(&:downcase)
     end
 
-    # The relation types for this Link header extracted from field_value
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.9)
+    # The relation types for this Link header extracted from +field_value+.
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.9 Parsing a Link Field Value
     #
     # @return [String]
     def relations_string
       @relations_string ||= grouped_link_parameters[:rel]&.first.to_s
     end
 
-    # The target URL for this Link header extracted from field_value
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.4)
+    # The target URL for this Link header extracted from +field_value+
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.4 Parsing a Link Field Value
     #
     # @return [String]
     def target_string
       @target_string ||= field_value_match_data[:target_string]
     end
 
-    # The resolved target URL for this Link header
-    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2 (Appendix B.2.2.8)
+    # The resolved target URL for this Link header.
+    #
+    # @see https://tools.ietf.org/html/rfc8288#appendix-B.2
+    #   IETF RFC 8288 Web Linking Appendix B.2.2.8 Parsing a Link Field Value
     #
     # @return [String]
     def target_uri
       @target_uri ||= URI.join(base, target_string).normalize.to_s
     end
 
+    # Return a +Hash+ representation of this {LinkHeader}.
+    #
     # @return [Hash{Symbol => String, Array, Hash{Symbol => Array}}]
     def to_hash
       {
