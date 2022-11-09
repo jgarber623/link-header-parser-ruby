@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.0 / 2022-11-09
+
+- **Breaking change:** Add `#to_ary`/`#to_a` method to `LinkHeadersCollection` (6a478ed)
+	- Note: marking this as a breaking change since it changes the existing behavior to return an `Array` of `Hash`es instead of an `Array` of `LinkHeader`s
+- **Breaking change:** Update project Ruby version to 2.7.6 and minimum Ruby version to 2.7 (1e9df45)
+- Improve documentation and privatize constants (8a68aa0)
+- Remove Reek development dependency (423bc7a)
+- Use ruby/debug gem instead of pry-byebug (4cd9d26)
+
 ## 4.0.0 / 2022-01-06
 
 - Remove Addressable dependency (daedf22)
