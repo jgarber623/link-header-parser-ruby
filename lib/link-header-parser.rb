@@ -13,6 +13,14 @@ module LinkHeaderParser
   #
   # Convenience method for {LinkHeaderParser::LinkHeadersCollection#initialize}.
   #
+  # @example
+  #   require 'net/http'
+  #
+  #   url = 'https://sixtwothree.org'
+  #   link_headers = Net::HTTP.get_response(URI.parse(url)).get_fields('Link')
+  #
+  #   LinkHeaderParser.parse(link_headers, base: url)
+  #
   # @param (see LinkHeaderParser::LinkHeadersCollection#initialize)
   # @return (see LinkHeaderParser::LinkHeadersCollection#initialize)
   def self.parse(*headers, base:)

@@ -35,14 +35,13 @@ $ bundle install
 With link-header-parser-ruby added to your project's `Gemfile` and installed, you may parse a URL's HTTP Link headers by doing:
 
 ```ruby
-require 'http'
+require 'net/http'
 require 'link-header-parser'
 
-response = HTTP.get('https://sixtwothree.org')
+url = 'https://sixtwothree.org'
+link_headers = Net::HTTP.get_response(URI.parse(url)).get_fields('Link')
 
-link_headers = response.headers.get('link')
-
-collection = LinkHeaderParser.parse(link_headers, base: response.uri)
+collection = LinkHeaderParser.parse(link_headers, base: url)
 ```
 
 The `parse` method accepts two arguments:
