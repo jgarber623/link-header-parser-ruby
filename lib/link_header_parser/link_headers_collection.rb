@@ -50,6 +50,15 @@ module LinkHeaderParser
       @relation_types ||= flat_map(&:relation_types).uniq.sort
     end
 
+    # @see LinkHeader#to_hash
+    #
+    # @return [Array<Hash>}>]
+    def to_ary
+      map(&:to_hash)
+    end
+
+    alias to_a to_ary
+
     private
 
     attr_reader :base
