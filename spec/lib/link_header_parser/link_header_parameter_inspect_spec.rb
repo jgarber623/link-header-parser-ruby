@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LinkHeaderParser::LinkHeaderParameter, '#inspect' do
+RSpec.describe LinkHeaderParser::LinkHeaderParameter, '#inspect' do
   subject(:link_parameter) { described_class.new('rel="home"') }
 
   it 'returns a String' do

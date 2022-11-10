@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-describe LinkHeaderParser::LinkHeader, '#to_hash' do
-  SpecFixtures.example_link_headers.each do |header, result|
+RSpec.describe LinkHeaderParser::LinkHeader, '#to_hash' do
+  JSON.parse(
+    File.read(File.join(Dir.pwd, 'spec/support/example_link_headers.json')),
+    symbolize_names: true
+  ).each do |header, result|
     context "when header is #{header}" do
       subject(:link_header) { described_class.new(header, base: 'https://example.com') }
 
@@ -11,7 +14,10 @@ describe LinkHeaderParser::LinkHeader, '#to_hash' do
     end
   end
 
-  SpecFixtures.example_link_headers_with_anchors.each do |header, result|
+  JSON.parse(
+    File.read(File.join(Dir.pwd, 'spec/support/example_link_headers_with_anchors.json')),
+    symbolize_names: true
+  ).each do |header, result|
     context "when header is #{header}" do
       subject(:link_header) { described_class.new(header, base: 'https://example.com') }
 

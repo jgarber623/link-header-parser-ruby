@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LinkHeaderParser::LinkHeadersCollection, '#group_by_relation_type' do
+RSpec.describe LinkHeaderParser::LinkHeadersCollection, '#group_by_relation_type' do
   subject(:link_headers_collection) { described_class.new(headers, base: 'https://example.com') }
 
   let(:headers) { '</1>; rel="next"' }

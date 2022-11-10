@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LinkHeaderParser::LinkHeadersCollection, '#inspect' do
+RSpec.describe LinkHeaderParser::LinkHeadersCollection, '#inspect' do
   subject(:link_header) { described_class.new(['</>; rel="home"'], base: 'https://example.com') }
 
   it 'returns a String' do

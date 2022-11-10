@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe LinkHeaderParser::LinkHeader do
+RSpec.describe LinkHeaderParser::LinkHeader do
   context 'when header is not a String' do
     subject(:link_header) { described_class.new(1, base: 'https://example.com') }
 
