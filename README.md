@@ -4,7 +4,7 @@
 
 [![Gem](https://img.shields.io/gem/v/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
 [![Downloads](https://img.shields.io/gem/dt/link-header-parser.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/link-header-parser)
-[![Build](https://img.shields.io/github/workflow/status/jgarber623/link-header-parser-ruby/CI?logo=github&style=for-the-badge)](https://github.com/jgarber623/link-header-parser-ruby/actions/workflows/ci.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/jgarber623/link-header-parser-ruby/ci.yml?branch=main&logo=github&style=for-the-badge)](https://github.com/jgarber623/link-header-parser-ruby/actions/workflows/ci.yml)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby)
 [![Coverage](https://img.shields.io/codeclimate/c/jgarber623/link-header-parser-ruby.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/link-header-parser-ruby/code)
 
