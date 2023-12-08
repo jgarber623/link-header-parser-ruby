@@ -66,8 +66,9 @@ module LinkHeaderParser
     attr_reader :base
 
     def distinct_link_headers
-      headers.flat_map { |header| header.split(/,(?=[\s|<])/) }
-             .map { |header| LinkHeader.new(header.strip, base: base) }
+      headers
+        .flat_map { |header| header.split(/,(?=[\s|<])/) }
+        .map { |header| LinkHeader.new(header.strip, base: base) }
     end
 
     def members

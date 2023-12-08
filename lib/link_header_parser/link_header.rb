@@ -133,10 +133,11 @@ module LinkHeaderParser
     end
 
     def grouped_link_parameters
-      @grouped_link_parameters ||= link_parameters.map(&:to_a)
-                                                  .group_by(&:shift)
-                                                  .transform_keys(&:to_sym)
-                                                  .transform_values(&:flatten)
+      @grouped_link_parameters ||= link_parameters
+                                     .map(&:to_a)
+                                     .group_by(&:shift)
+                                     .transform_keys(&:to_sym)
+                                     .transform_values(&:flatten)
     end
   end
 end
