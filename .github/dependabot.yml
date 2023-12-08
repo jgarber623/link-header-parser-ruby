@@ -1,12 +1,6 @@
 version: 2
 
 updates:
-  - package-ecosystem: "bundler"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "jgarber623"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
