@@ -47,7 +47,7 @@ module LinkHeaderParser
     #
     # @return [Array<String>]
     def relation_types
-      @relation_types ||= flat_map(&:relation_types).uniq.sort
+      @relation_types ||= Set.new(flat_map(&:relation_types)).to_a.sort
     end
 
     # Return an +Array+ representation of this {LinkHeadersCollection}.
