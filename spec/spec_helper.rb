@@ -16,10 +16,10 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'debug'
-require 'simplecov'
+require "debug"
+require "simplecov"
 
-require 'link-header-parser'
+require "link-header-parser"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -82,7 +82,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the

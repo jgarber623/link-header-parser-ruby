@@ -5,7 +5,7 @@ module LinkHeaderParser
     FIELD_VALUE_REGEXP_PATTERN = /^\s*<\s*(?<target_string>[^>]+)\s*>\s*(?<parameters>;\s*.*)$/.freeze
     private_constant :FIELD_VALUE_REGEXP_PATTERN
 
-    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*([^;]+)/.freeze
+    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*[^;]+/.freeze
     private_constant :PARAMETERS_REGEXP_PATTERN
 
     # The +String+ value used to create this {LinkHeader}.
@@ -60,9 +60,9 @@ module LinkHeaderParser
     #
     # @return [Array<LinkHeaderParser::LinkHeaderParameter>]
     def link_parameters
-      @link_parameters ||= field_value_match_data[:parameters].scan(PARAMETERS_REGEXP_PATTERN)
-                                                              .flatten
-                                                              .map { |parameter| LinkHeaderParameter.new(parameter) }
+      @link_parameters ||= field_value_match_data[:parameters]
+                             .scan(PARAMETERS_REGEXP_PATTERN)
+                             .map { |parameter| LinkHeaderParameter.new(parameter.strip) }
     end
 
     # The +relations_string+ value returned as an +Array+.
@@ -133,10 +133,11 @@ module LinkHeaderParser
     end
 
     def grouped_link_parameters
-      @grouped_link_parameters ||= link_parameters.map(&:to_a)
-                                                  .group_by(&:shift)
-                                                  .transform_keys(&:to_sym)
-                                                  .transform_values(&:flatten)
+      @grouped_link_parameters ||= link_parameters
+                                     .map(&:to_a)
+                                     .group_by(&:shift)
+                                     .transform_keys(&:to_sym)
+                                     .transform_values(&:flatten)
     end
   end
 end

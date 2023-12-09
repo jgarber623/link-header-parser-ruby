@@ -1,6 +1,11 @@
 inherit_from:
-  - https://raw.githubusercontent.com/jgarber623/rubocop-configs/main/.rubocop.gem.yml
+  - https://github.com/jgarber623/rubocop-configs/raw/main/.rubocop.yml
+  - https://github.com/jgarber623/rubocop-configs/raw/main/.rubocop-rspec.yml
 
+require:
+  - rubocop-packaging
+
+# Makes sure that Ruby source files have snake_case names.
 Naming/FileName:
   Exclude:
     - lib/link-header-parser.rb

@@ -19,7 +19,9 @@ module LinkHeaderParser
     # @param headers [Array<String, #to_str>]
     # @param base [String, #to_str]
     def initialize(*headers, base:)
+      # rubocop:disable Performance/ChainArrayAllocation
       @headers = headers.to_ary.flatten.map(&:to_str)
+      # rubocop:enable Performance/ChainArrayAllocation
       @base = base.to_str
 
       push(*distinct_link_headers)
@@ -47,7 +49,7 @@ module LinkHeaderParser
     #
     # @return [Array<String>]
     def relation_types
-      @relation_types ||= flat_map(&:relation_types).uniq.sort
+      @relation_types ||= Set.new(flat_map(&:relation_types)).to_a.sort
     end
 
     # Return an +Array+ representation of this {LinkHeadersCollection}.
@@ -66,8 +68,9 @@ module LinkHeaderParser
     attr_reader :base
 
     def distinct_link_headers
-      headers.flat_map { |header| header.split(/,(?=[\s|<])/) }
-             .map { |header| LinkHeader.new(header.strip, base: base) }
+      headers
+        .flat_map { |header| header.split(/,(?=[\s|<])/) }
+        .map { |header| LinkHeader.new(header.strip, base: base) }
     end
 
     def members
