@@ -19,7 +19,9 @@ module LinkHeaderParser
     # @param headers [Array<String, #to_str>]
     # @param base [String, #to_str]
     def initialize(*headers, base:)
+      # rubocop:disable Performance/ChainArrayAllocation
       @headers = headers.to_ary.flatten.map(&:to_str)
+      # rubocop:enable Performance/ChainArrayAllocation
       @base = base.to_str
 
       push(*distinct_link_headers)
