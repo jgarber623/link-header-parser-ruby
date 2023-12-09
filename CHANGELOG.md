@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.1 / 2023-12-08
+
+- Refactor test suite (7a9a446)
+- Miscellaneous RuboCop updates (512efa5, cc36a1e, 025d150, 36f9cc1)
+- Update RuboCop configuration (376cf8e)
+- Update development Ruby to 2.7.8 (5ca0757)
+- Remove Bundler ecosystem config from Dependabot (8bcacdf)
+- Update RSpec configuration (afef67d, 83583a1)
+- Remove `code-scanning-rubocop` and `rspec-github` gems (154fd95)
+
 ## 5.0.0 / 2022-11-09
 
 - **Breaking change:** Add `#to_ary`/`#to_a` method to `LinkHeadersCollection` (6a478ed)
