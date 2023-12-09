@@ -3,7 +3,7 @@
 ## 5.0.0 / 2022-11-09
 
 - **Breaking change:** Add `#to_ary`/`#to_a` method to `LinkHeadersCollection` (6a478ed)
-	- Note: marking this as a breaking change since it changes the existing behavior to return an `Array` of `Hash`es instead of an `Array` of `LinkHeader`s
+  - Note: marking this as a breaking change since it changes the existing behavior to return an `Array` of `Hash`es instead of an `Array` of `LinkHeader`s
 - **Breaking change:** Update project Ruby version to 2.7.6 and minimum Ruby version to 2.7 (1e9df45)
 - Improve documentation and privatize constants (8a68aa0)
 - Remove Reek development dependency (423bc7a)
@@ -35,9 +35,9 @@
 ## 2.0.0 / 2020-05-21
 
 - **Breaking changes:** Rewrite gem code (5351010)
-	- `LinkHeaderParser.parse` returns `LinkHeadersCollection`
-	- New classes: `LinkHeadersCollection`, `LinkHeader`, and `LinkHeaderParameter`
-	- Renamed collection's `by_relation_type` method to `group_by_relation_type`
+  - `LinkHeaderParser.parse` returns `LinkHeadersCollection`
+  - New classes: `LinkHeadersCollection`, `LinkHeader`, and `LinkHeaderParameter`
+  - Renamed collection's `by_relation_type` method to `group_by_relation_type`
 - **Breaking change:** Update project Ruby version to 2.5.8 and minimum Ruby version to 2.5 (05b2e82)
 - Update inline documentation and refactor `ParsedHeader` and `ParsedHeaderCollection` classes (31ec43e)
 
