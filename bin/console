@@ -11,5 +11,7 @@ require "link-header-parser"
 # require "pry"
 # Pry.start
 
+ENV["IRBRC"] = ".irbrc"
+
 require "irb"
 IRB.start(__FILE__)
