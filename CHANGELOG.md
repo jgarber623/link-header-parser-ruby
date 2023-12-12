@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.1.0 / 2023-12-12
+
+- Remove upper Ruby version constraint (#52) (f34716e)
+
 ## 5.0.1 / 2023-12-08
 
 - Refactor test suite (7a9a446)
