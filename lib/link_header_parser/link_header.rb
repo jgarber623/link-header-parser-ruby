@@ -48,7 +48,7 @@ module LinkHeaderParser
 
     # @return [String]
     def inspect
-      "#<#{self.class.name}:#{format('%#0x', object_id)} " \
+      "#<#{self.class.name}:#{format("%#0x", object_id)} " \
         "target_uri: #{target_uri.inspect}, " \
         "relation_types: #{relation_types.inspect}>"
     end
