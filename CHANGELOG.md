@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.1.1 / 2024-01-01
+
+- RuboCop: Style/WordArray (7b5964f)
+- RuboCop: Style/StringLiteralsInInterpolation (152a44c)
+- Add source_code_uri to metadata (207db81)
+
 ## 5.1.0 / 2023-12-12
 
 - Remove upper Ruby version constraint (#52) (f34716e)
