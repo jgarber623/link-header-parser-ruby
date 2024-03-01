@@ -5,7 +5,7 @@ RSpec.describe LinkHeaderParser, ".parse" do
     it "returns a LinkHeadersCollection" do
       expect(
         described_class.parse(%(</>; rel="home"), %(</next>; rel="next"), base: "https://example.com")
-      ).to be_instance_of(LinkHeaderParser::LinkHeadersCollection)
+      ).to be_instance_of(described_class::LinkHeadersCollection)
     end
   end
 
@@ -13,7 +13,7 @@ RSpec.describe LinkHeaderParser, ".parse" do
     it "returns a LinkHeadersCollection" do
       expect(
         described_class.parse([%(</>; rel="home"), %(</prev>; rel="prev")], base: "https://example.com")
-      ).to be_instance_of(LinkHeaderParser::LinkHeadersCollection)
+      ).to be_instance_of(described_class::LinkHeadersCollection)
     end
   end
 end
