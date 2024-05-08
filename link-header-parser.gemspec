@@ -3,7 +3,7 @@
 require_relative "lib/link_header_parser/version"
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = ">= 2.7"
+  spec.required_ruby_version = ">= 3.0"
 
   spec.name          = "link-header-parser"
   spec.version       = LinkHeaderParser::VERSION

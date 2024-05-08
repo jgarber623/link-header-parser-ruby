@@ -2,7 +2,7 @@
 
 module LinkHeaderParser
   class LinkHeaderParameter
-    PARAMETER_REGEXP_PATTERN = /^(?<name>.+?)(?:="?(?<value>.*?)"?)?$/.freeze
+    PARAMETER_REGEXP_PATTERN = /^(?<name>.+?)(?:="?(?<value>.*?)"?)?$/
     private_constant :PARAMETER_REGEXP_PATTERN
 
     # The +String+ value used to create this {LinkHeaderParameter}.

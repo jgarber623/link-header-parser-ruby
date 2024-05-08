@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "forwardable"
+require "uri"
 
 require_relative "link_header_parser/version"
 

@@ -5,7 +5,9 @@ inherit_from:
 require:
   - rubocop-packaging
 
-# Makes sure that Ruby source files have snake_case names.
+AllCops:
+  TargetRubyVersion: "3.0"
+
 Naming/FileName:
   Exclude:
     - lib/link-header-parser.rb
