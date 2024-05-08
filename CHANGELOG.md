@@ -1,5 +1,8 @@
 # Changelog
 
+> [!NOTE]
+> From v6.0.0, changes are documented using [GitHub Releases](https://github.com/jgarber623/link-header-parser-ruby/releases). For a given release, metadata on RubyGems.org will link to that version's Release page.
+
 ## 5.1.1 / 2024-01-01
 
 - RuboCop: Style/WordArray (7b5964f)
