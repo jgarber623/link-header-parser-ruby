@@ -2,10 +2,10 @@
 
 module LinkHeaderParser
   class LinkHeader
-    FIELD_VALUE_REGEXP_PATTERN = /^\s*<\s*(?<target_string>[^>]+)\s*>\s*(?<parameters>;\s*.*)$/.freeze
+    FIELD_VALUE_REGEXP_PATTERN = /^\s*<\s*(?<target_string>[^>]+)\s*>\s*(?<parameters>;\s*.*)$/
     private_constant :FIELD_VALUE_REGEXP_PATTERN
 
-    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*[^;]+/.freeze
+    PARAMETERS_REGEXP_PATTERN = /(?<!;)\s*[^;]+/
     private_constant :PARAMETERS_REGEXP_PATTERN
 
     # The +String+ value used to create this {LinkHeader}.
