@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This project has moved to [codeberg.org/jgarber/link-header-parser-ruby](https://codeberg.org/jgarber/link-header-parser-ruby).
+
 # link-header-parser-ruby
 
 **A Ruby gem for parsing HTTP Link headers.**
